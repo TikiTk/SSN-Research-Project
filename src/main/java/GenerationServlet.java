@@ -10,7 +10,8 @@ public class GenerationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String textToEncode = request.getParameter("textToEncode");
-        GenerateQRCode.generateQRimage(textToEncode);
+        String path = "path";
+        GenerateQRCode.generateQRimage(textToEncode, path);
         response.setContentType("image/jpg");
 
     }
