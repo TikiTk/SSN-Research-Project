@@ -13,9 +13,11 @@ public class Overlay2 {
         long startTime = System.currentTimeMillis();
 
         //change the path to make it work
-        java.awt.image.BufferedImage a = read(new File("/home/tk/Documents/QR/QR.png"));
-        java.awt.image.BufferedImage b = read(new File("/home/tk/Documents/QR/QR_Key.png"));
-        File c = new File ("/home/tk/Documents/QR/overlay.png");
+
+        java.awt.image.BufferedImage a = read(new File("/home/sveta_buri/bkey.png"));
+        java.awt.image.BufferedImage b = read(new File("/home/sveta_buri/bmsg.png"));
+        File c = new File ("/home/sveta_buri/bres.png");
+
         System.out.println(a.getWidth());
         System.out.println(a.getHeight());
 

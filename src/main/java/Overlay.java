@@ -4,22 +4,22 @@ import static javax.imageio.ImageIO.read;
 import static javax.imageio.ImageIO.write;
 
 
-public class Overlay {
+class Overlay {
 
 
 
-    public static void main(String[]y) throws Exception {
+    static File Overlay_codes(File msg, File key, String path) throws Exception {
 
         long startTime = System.currentTimeMillis();
 
         //change the path to make it work
 
-        java.awt.image.BufferedImage a = read(new File("/home/sveta_buri/tmsg.png"));
-        java.awt.image.BufferedImage b = read(new File("/home/sveta_buri/tkey.png"));
-        File c = new File ("/home/sveta_buri/overlay.png");
+        java.awt.image.BufferedImage a = read(msg);
+        java.awt.image.BufferedImage b = read(key);
+        File c = new File (path);
 
-        System.out.println(a.getWidth());
-        System.out.println(a.getHeight());
+       // System.out.println(a.getWidth());
+       // System.out.println(a.getHeight());
 
 
         //zone1
@@ -99,10 +99,10 @@ public class Overlay {
         // }
 
         long timeSpent = System.currentTimeMillis() - startTime;
-        System.out.println("программа выполнялась " + timeSpent + " миллисекунд");
+        System.out.println("Overlaying takes " + timeSpent + " ms");
 
 
 
-
+        return c;
     }
 }
