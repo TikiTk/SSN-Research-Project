@@ -1,3 +1,5 @@
+
+
 import java.io.File;
 
 /**
@@ -20,7 +22,7 @@ public class Main {
 
         //generate QRcode from String message
 
-        String msgFilePath = "/home/sveta_buri/string_msg.png";
+        String msgFilePath = "/home/tk/Documents/QR/string_msg.png";
         int size = 124;
         String fileType = "png";
         File msgFile = new File(msgFilePath);
@@ -29,21 +31,21 @@ public class Main {
 
         //generate QRcode from String key
 
-        String keyFilePath = "/home/sveta_buri/string_key.png";
+        String keyFilePath = "/home/tk/Documents/QR/string_key.png";
         File keyFile = new File(keyFilePath);
         qrcode.createQRImage(keyFile, key, size, fileType);
         System.out.println("QR code from key is generated");
 
 
-        //Overlay 2 QRcodes String
+        //Overlay_codes 2 QRcodes String
 
-        String overFilePath = "/home/sveta_buri/string_overlay.png";
-        File overFile = overlay.Overlay(msgFile, keyFile, overFilePath);
+        String overFilePath = "/home/tk/Documents/QR/string_overlay.png";
+        File overFile = overlay.Overlay_codes(msgFile, keyFile, overFilePath);
 
         //Overlaying to decode
 
-        String decodeFilePath = "/home/sveta_buri/string_decode.png";
-        File decodeFile = overlay.Overlay(overFile, keyFile, decodeFilePath);
+        String decodeFilePath = "/home/tk/Documents/QR/string_decode.png";
+        File decodeFile = overlay.Overlay_codes(overFile, keyFile, decodeFilePath);
 
         toHex.doHex(text, key);
 

@@ -8,8 +8,8 @@ import java.util.logging.Logger;
  */
 public class HexStringConverter
 {
-    public static final char[] HEX_CHARS = "0123456789abcdef".toCharArray();
-    public static HexStringConverter hexStringConverter = null;
+    private static final char[] HEX_CHARS = "0123456789abcdef".toCharArray();
+    private static HexStringConverter hexStringConverter = null;
 
     public HexStringConverter()
     {}
