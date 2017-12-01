@@ -27,11 +27,11 @@ class QRCode {
         //this commented string generates output string of xoring 2 strings. Strings should be equal lenght
         //String qrCodeText = s.genString("say", "key");
 
-        String qrCodeText = "KEY2";
+        String qrCodeText = "qr";
         System.out.println(qrCodeText);
 
         //change the path to make it work
-        String filePath = "/home/sveta_buri/bkey.png";
+        String filePath = "/home/tk/Documents/QR/bqr.png";
         int size = 124;
         String fileType = "png";
         File qrFile = new File(filePath);
@@ -39,14 +39,12 @@ class QRCode {
         System.out.println("DONE");
     }
 
-    private static void createQRImage(File qrFile, String qrCodeText, int size,
-                                      String fileType) throws WriterException, IOException {
+    static void createQRImage(File qrFile, String qrCodeText, int size, String fileType) throws WriterException, IOException {
         // Create the ByteMatrix for the QR-Code that encodes the given String
         Hashtable hintMap = new Hashtable();
         hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        BitMatrix byteMatrix = qrCodeWriter.encode(qrCodeText,
-                BarcodeFormat.QR_CODE, size, size, hintMap);
+        BitMatrix byteMatrix = qrCodeWriter.encode(qrCodeText, BarcodeFormat.QR_CODE, size, size, hintMap);
         // Make the BufferedImage that are to hold the QRCode
         int matrixWidth = byteMatrix.getWidth();
         BufferedImage image = new BufferedImage(matrixWidth, matrixWidth,
