@@ -1,5 +1,7 @@
+package extras;
+
 import java.io.UnsupportedEncodingException;
-import java.util.logging.Level;
+import java.util.Formatter;
 import java.util.logging.Logger;
 
 /**
@@ -20,14 +22,15 @@ public class HexStringConverter
         return hexStringConverter;
     }
 
-    public String stringToHex(String input) throws UnsupportedEncodingException
+    public static String stringToHex(String input) throws UnsupportedEncodingException
     {
         if (input == null) throw new NullPointerException();
         return asHex(input.getBytes());
     }
 
-    public String hexToString(String txtInHex)
+    public static String hexToString(String txtInHex)
     {
+
         byte [] txtInByte = new byte [txtInHex.length() / 2];
         int j = 0;
         for (int i = 0; i < txtInHex.length(); i += 2)
@@ -37,7 +40,17 @@ public class HexStringConverter
         return new String(txtInByte);
     }
 
-    private String asHex(byte[] buf)
+
+    public String ConvertToStringByHalves(String txtInHex){
+        String firstHalf  = txtInHex.substring(0, txtInHex.length()/2);
+        String secondHalf = txtInHex.substring(txtInHex.length()/2,txtInHex.length());
+
+        String totalString = hexToString(firstHalf);
+        totalString+= hexToString(secondHalf);
+
+        return totalString;
+    }
+    private static String asHex(byte[] buf)
     {
         char[] chars = new char[2 * buf.length];
         for (int i = 0; i < buf.length; ++i)
@@ -102,8 +115,51 @@ public class HexStringConverter
         }
         catch (UnsupportedEncodingException ex)
         {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
+    }
+
+    public static String encodeAndXorHex(String text, String key){
+
+
+
+        try
+        {
+
+            return xorHex(stringToHex(text), stringToHex(key));
+
+
+        }
+        catch (UnsupportedEncodingException ex)
+        {
+            return ex.getMessage();
+
+        }
+
+
+    }
+    public static String xorAndDecodeToString (String hex, String key) throws UnsupportedEncodingException {
+
+        String decode="";
+
+        try {
+            String keyInHex = stringToHex(key);
+
+            decode  = xorHex(hex, keyInHex);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+
+        return hexToString(decode);
+    }
+    public static String convertBytesToHex(byte[] bytes){
+        Formatter formatter = new Formatter();
+        for (byte b : bytes){
+            formatter.format("%02x", b);
+        }
+        String hex = formatter.toString();
+        return hex;
     }
 
 }

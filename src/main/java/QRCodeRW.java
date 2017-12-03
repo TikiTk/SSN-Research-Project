@@ -22,7 +22,7 @@ public class QRCodeRW {
                 NotFoundException {
             String qrCodeData = "Hello World!";
             String filePath = "QRCode.png";
-            String charset = "UTF-8"; // or "ISO-8859-1"
+            String charset = "ASCII"; // or "ISO-8859-1"
             Map hintMap = new HashMap();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
 
